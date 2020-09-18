@@ -1,0 +1,15 @@
+version: '3.1'
+services:
+    simple-express-server:
+        image: thianlopezz/simple-express-server:latest
+        environment:
+            PORT: "80"
+        ports:
+            - "3000:80"
+        volumes:
+            - ./hispana-ionic:/home/apps/simple-express-server/public
+        networks:
+          - wpsite
+
+networks:
+  wpsite:
