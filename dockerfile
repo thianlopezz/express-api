@@ -2,6 +2,7 @@
 FROM node:8.10.0-alpine
 #Defino el directorio en donde se va a ejecutar mi configuración dentro del contenedor
 WORKDIR /home/apps/express-api
+RUN npm config set unsafe-perm true
 #Copio el archivo package.js para posteriormente instalar las dependencias de mi repositorio
 COPY package*.json ./
 RUN npm install
