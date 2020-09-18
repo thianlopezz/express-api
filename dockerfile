@@ -1,5 +1,5 @@
 #Definimos el la version de node que tendrá mi contenedor
-FROM node:12.3.0-alpine
+FROM node:8.10.0-alpine
 #Defino el directorio en donde se va a ejecutar mi configuración dentro del contenedor
 WORKDIR /home/apps/express-api
 #Copio el archivo package.js para posteriormente instalar las dependencias de mi repositorio
