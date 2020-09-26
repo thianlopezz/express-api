@@ -24,7 +24,10 @@ app.get('/cambio-estado/:idOrden/:nuevoEstado', async (req, res) => {
 			version: 'wc'
 		});
 
-		let response = await WooCommerce.get(`extended/cambio-estado/${idOrden}/${nuevoEstado}`);
+		let response = await WooCommerce.post(`extended/cambio-estado`, {
+			idOrden,
+			nuevoEstado
+		});
 
 		res.send(response.data);
 	} catch (e) {
@@ -45,9 +48,13 @@ app.post('/cambio-estado', async (req, res) => {
 			version: 'wc'
 		});
 
-		let response = await WooCommerce.get(`extended/cambio-estado/${idOrden}/${nuevoEstado}`);
+		let response = await WooCommerce.post(`extended/cambio-estado/`, {
+			idOrden,
+			nuevoEstado,
+			metadata
+		});
 
-		res.send({ ...response.data, metadata });
+		res.send(response.data);
 	} catch (e) {
 		console.log(e);
 		res.status(500).send({ success: false, error: e });
